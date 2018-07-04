@@ -1,0 +1,77 @@
+
+
+
+<div class="row">
+  <!--INICIO DE SESION-->
+  <div class="col-md-6">
+
+    <h3>Iniciar sesion</h3>
+
+    <form #formaIngreso="ngForm" (ngSubmit)="confirmarInicio(formaIngreso)">
+      <div class="form-group">
+        <label for="email">Ingresa tu correo</label>
+        <input type="email" id="email" class="form-control form-control-sm" aria-describedby="emailHelp" placeholder="Correo" name="correo" [(ngModel)]="correo" required>
+      </div>
+      <div class="form-group">
+        <label for="contrasenia">Contraseña</label>
+        <input type="password" id="contrasenia" class="form-control form-control-sm" placeholder="Password" minlength="3" name="contrasenia" [(ngModel)]="contrasenia" required>
+      </div>
+      <button [disabled]="!formaIngreso.valid" type="submit" class="btn btn-outline-primary">Ingresar!</button>
+    </form>
+
+    <div class="" *ngIf="inicioIncorrecto">
+      <hr>
+      <div class="alert alert-danger" role="alert">
+          Correo o contraseña incorrectos!!
+      </div>
+    </div>
+  </div>
+
+  <!--REGISTRO DE USUARIO-->
+  <div class="col-md-6">
+
+    <h3>Registrate</h3>
+
+    <form #formaRegistro="ngForm" (ngSubmit)="registrarUsuario(formaRegistro)">
+      <div class="form-group">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" class="form-control form-control-sm" id="nombre" placeholder="Ingresa tu nombre" name="nombre" [(ngModel)]="usuarioRegistrar.nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="edad">Edad</label>
+        <input type="number" min="6" max="80" class="form-control form-control-sm" id="edad" placeholder="Ingresa tu edad!" name="edad" [(ngModel)]="usuarioRegistrar.edad" required>
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" class="form-control form-control-sm" id="correo" placeholder="Ingresa tu correo" name="correo" [(ngModel)]="usuarioRegistrar.correo" required>
+      </div>
+      <div class="form-group">
+        <label for="contraseniaRegistro">Crea una contraseña!</label>
+        <input type="password" class="form-control form-control-sm" id="contraseniaRegistro" placeholder="Contraseña" name="contrasenia" [(ngModel)]="usuarioRegistrar.contrasenia" required>
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Registrar</button>
+    </form>
+
+    <div class="" *ngIf="correoNoValido">
+      <hr>
+      <div class="alert alert-danger" role="alert">
+          Esto no parece ser un correo!!!
+      </div>
+    </div>
+
+    <div class="" *ngIf="usuarioYaExistente">
+      <hr>
+      <div class="alert alert-danger" role="alert">
+          Correo ya registrado! Inicia sesion.
+      </div>
+    </div>
+
+
+    <div class="" *ngIf="usuarioRegistrado">
+      <hr>
+      <div class="alert alert-success" role="alert">
+          Usuario registrado con exito! Inicia sesion.
+      </div>
+    </div>
+  </div>
+</div>

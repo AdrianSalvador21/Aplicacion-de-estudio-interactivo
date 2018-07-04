@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+.margenSuperior{
+  margin-top: 20px;
+}
+
+.margenIzq{
+  margin-left: 10px;
+}
