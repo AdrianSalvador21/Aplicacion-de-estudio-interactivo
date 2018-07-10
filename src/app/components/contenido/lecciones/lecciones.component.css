@@ -1,0 +1,17 @@
+.leccion:hover{
+  background-color: #3F66A3;
+  color: white;
+}
+.boton{
+  font-style: italic;
+  float: right;
+  background-color: #FFBF00;
+}
+.boton:hover{
+  font-weight:bolder;
+}
+
+.botonL{
+  float: right;
+  background-color: #FFBF00;
+}

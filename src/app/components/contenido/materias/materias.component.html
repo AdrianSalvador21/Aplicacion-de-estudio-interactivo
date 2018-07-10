@@ -1,0 +1,16 @@
+<p class="titulo">Selecciona una materia a estudiar!</p>
+<hr>
+
+
+
+
+<div class="card-columns">
+  <div class="card tarjeta" style="width: 18rem;" *ngFor="let mat of materias | keys">
+    <img class="card-img-top" [src]="materias[mat].imagen" [alt]="materias[mat].nombre">
+    <div class="card-body">
+      <h5 class="card-title">{{materias[mat].nombre}}</h5>
+      <p class="card-text">{{materias[mat].descripcion}}</p>
+      <button (click)="irLecciones(materias[mat].id)" type="button" class="btn boton btn-block" name="button">Lecciones</button>
+    </div>
+  </div>
+</div>

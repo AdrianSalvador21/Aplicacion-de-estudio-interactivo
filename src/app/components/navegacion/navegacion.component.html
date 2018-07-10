@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0489B1">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3F66A3">
 
   <a class="navbar-brand" href="#">
     <img src="assets/img/education.png" width="30" height="30" alt="">
@@ -11,9 +11,6 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" >
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link letra" [routerLink]="['inicio']">Inicio</a>
-      </li>
       <li class="nav-item" routerLinkActive="active" *ngIf="!sesionCerrada">
         <a class="nav-link letra" [routerLink]="['perfil']">Perfil</a>
       </li>
@@ -34,12 +31,14 @@
       </li>
     </ul>
 
-    <form class="form-inline my-2 my-lg-0" *ngIf="sesionCerrada">
-       <button [routerLink]="['/login']" type="button" name="button" class="btn btn-outline-light my-2 my-sm-0 btn-sm">Iniciar Sesion</button>
+    <form class="form-inline my-2 my-lg-0" *ngIf="!sesionCerrada">
+       <button (click)="cerrar()" type="button" name="button" class="btn btn-outline-light my-2 my-sm-0 btn-sm"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</button>
     </form>
 
-    <form class="form-inline my-2 my-lg-0" *ngIf="!sesionCerrada">
-       <button (click)="cerrar()" type="button" name="button" class="btn btn-outline-light my-2 my-sm-0 btn-sm">Cerrar Sesion</button>
+    <form class="form-inline my-2 my-lg-0" *ngIf="sesionCerrada">
+      <a href="https://www.facebook.com/adriansalvador17"><i class="fab fa-facebook-square iconoColor"></i></a>
+      <a class="enlace" href="#"><i class="fab fa-youtube iconoColor"></i></a>
+      <a href="#"><i class="fab fa-instagram iconoColor"></i></a>
     </form>
   </div>
 </nav>

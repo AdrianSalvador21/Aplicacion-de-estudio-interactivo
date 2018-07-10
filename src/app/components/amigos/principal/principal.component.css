@@ -1,0 +1,24 @@
+.boton{
+  float: right;
+  background-color: #FFBF00;
+  margin-left: 3px;
+}
+
+.boton:hover{
+  font-weight:bold;
+}
+
+.usuario:hover{
+  background-color: #0489B1;
+  color: white;
+}
+
+
+
+.margenIzquierdoBoton{
+  margin-left: 5px;
+}
+
+.botonSize{
+  font-size: 16px;
+}

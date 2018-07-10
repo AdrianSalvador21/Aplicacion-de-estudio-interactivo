@@ -13,7 +13,18 @@ import {APP_ROUTING} from './app.routes';
 //Servicios
 import {SeuService} from './servicios/seu.service';
 import {AuthGuardService} from "./servicios/auth-guard.service";
+import {AuthGuardServiceInicio} from "./servicios/auth-guard-inicio.service";
+import {ChatService} from "./servicios/chat.service";
 
+
+//Angular firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+//pipe
+import { KeysPipe } from './pipes/keys.pipe';
 
 //Componentes
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -25,6 +36,13 @@ import { EjerciciosComponent } from './components/ejercicios/ejercicios.componen
 import { AmigosComponent } from './components/amigos/amigos.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { AdminComponent } from './components/admin/admin.component';
+
+import { environment } from '../environments/environment';
+import { MateriasComponent } from './components/contenido/materias/materias.component';
+import { LeccionesComponent } from './components/contenido/lecciones/lecciones.component';
+import { PrincipalComponent } from './components/amigos/principal/principal.component';
+import { EstadisticasComponent } from './components/amigos/estadisticas/estadisticas.component';
+import { TemaComponent } from './components/contenido/tema/tema.component';
 
 
 @NgModule({
@@ -39,18 +57,30 @@ import { AdminComponent } from './components/admin/admin.component';
     EjerciciosComponent,
     AmigosComponent,
     ChatComponent,
-    AdminComponent
+    AdminComponent,
+    MateriasComponent,
+    KeysPipe,
+    LeccionesComponent,
+    PrincipalComponent,
+    EstadisticasComponent,
+    TemaComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule
   ],
   providers: [
     SeuService,
-    AuthGuardService
+    AuthGuardService,
+    AuthGuardServiceInicio,
+    ChatService
   ],
   bootstrap: [AppComponent]
 })

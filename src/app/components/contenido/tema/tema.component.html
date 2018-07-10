@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-7 tituloUnidad">
+     <h2 class="tu">{{tutuloUnidad}}</h2>
+     <hr class="linea">
+  </div>
+</div>
+
+<div class="row tituloLeccion">
+   <div class="col-md-6">
+      <h4 class="tt">{{titulo}}</h4>
+      <hr class="linea">
+   </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 margenInferior">
+      <div class="">
+          <p class="parrafo" *ngFor="let p of textoSeparado">{{p}}</p>
+      </div>
+  </div>
+
+
+  <div class="col-md-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="imagenes">
+          <img class="img-fluid img-thumbnail imagen" *ngIf="rutaImagen" [src]="rutaImagen" alt="">
+          <img class="img-fluid img-thumbnail imagen" *ngIf="rutaImagen2" [src]="rutaImagen2" alt="">
+        </div>
+          </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" class="btn btn-lg btn-block botonCompletar" name="button">Completado <i class="far fa-check-circle"></i></button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

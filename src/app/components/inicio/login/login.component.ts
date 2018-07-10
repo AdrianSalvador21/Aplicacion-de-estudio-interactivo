@@ -59,10 +59,11 @@ export class LoginComponent implements OnInit {
       if(respuesta.length == 1){
           console.log("usuario correcto");
           console.log(respuesta[0].nombre);
+          localStorage.setItem("clave", respuesta[0].clave);
           localStorage.setItem("alumno", respuesta[0].nombre);
           localStorage.setItem("loginExitoso", "true");
 
-          location.href="http://localhost:4200/";
+          location.href="http://localhost:4200/perfil";
       //Si la longitud es 0, el usuario no existe
       }else{
           console.log("usuario incorrecto");

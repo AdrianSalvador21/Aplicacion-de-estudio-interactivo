@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SeuService} from '../../../servicios/seu.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _seuService:SeuService) {
+
+        //this._seuService.obtenerTexto().subscribe(data =>{
+          //console.log(data.text());
+        //})
+
+  }
 
   ngOnInit() {
   }

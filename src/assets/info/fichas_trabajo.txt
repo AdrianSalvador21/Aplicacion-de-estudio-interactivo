@@ -1,0 +1,16 @@
+FICHAS DE TRABAJO/
+Las fichas de trabajo nos permiten guardar la información obtenida de las diferentes fuentes de información. /
+
+TIPOS:/
+-Ficha de resumen/
+Su función es registrar el resumen que se extrae de un texto original./
+
+-Ficha de paráfrasis/
+Su función es registrar la paráfrasis de un texto consultado./
+Una paráfrasis, es trasladar con nuestras propias palabras una idea que se ha expresado de manera oral o escrita. /
+
+-Ficha de cita textual/
+Registra la información de un texto, usando las mismas palabras del autor. Se debe redactar el escrito entre comillas/
+
+-Ficha de comentarios propios/
+Nos permiten redactar comentarios personales, respecto al tema estudiado./

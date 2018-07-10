@@ -18,3 +18,13 @@ a:hover:after {
     border-width: 0 0 1px;
     border-style: solid;
 }
+
+.iconoColor{
+  color: white;
+  margin: auto;
+  padding-left: 5px;
+}
+
+.botonIcono{
+  background-color: #0489B1;
+}

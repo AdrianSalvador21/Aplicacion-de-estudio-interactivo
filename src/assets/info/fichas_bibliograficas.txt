@@ -1,0 +1,13 @@
+FICHAS BIBLIOGRÁFICAS/
+Las fichas bibliográficas nos permiten registrar los datos que identifican a un libro, de donde nosotros obtenemos información./
+
+PARTES DE UNA FICHA BIBLIOGRÁFICA./
+- Autor: su nombre se escribe comenzando por apellido paterno, seguido de la inicial de su nombre o nombres de pila./
+- Fecha de publicación: se escribe el año./
+- Edición: A partir de la segunda edición./
+- Lugar de publicación: nombre de la ciudad o país./
+- Editorial: escribir nombre./
+
+RECUERDA QUE UNA FICHA BIBLIOGRÁFICA SIRVE PARA:/
+- Anotar los datos de un libro consultado durante una investigación./
+- Registrar una nueva fuente de consulta./
