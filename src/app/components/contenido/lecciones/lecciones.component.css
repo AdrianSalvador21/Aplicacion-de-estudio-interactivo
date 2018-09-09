@@ -15,3 +15,10 @@
   float: right;
   background-color: #FFBF00;
 }
+
+.badgeCompletado{
+  float: right;
+  margin-right:10px;
+  background-color: #388e3c;
+  margin-top: 10px;
+}

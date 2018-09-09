@@ -1,34 +1,29 @@
 <h3>{{materia}}</h3>
 <hr>
 
-<div class="row">
+<div class="row animated fadeIn fast">
 
 
     <div class="col-md-6 margenInferior">
         <h5>Unidades</h5>
         <hr>
         <ul class="list-group margenSuperior">
-          <li class="list-group-item leccion" *ngFor="let uni of unidades |  keys">
-            <p>
-              {{unidades[uni].nombre}}
-              <button (click)="mostrarLecciones(unidades[uni].id)" type="button" class="btn boton" name="button"><i class="fas fa-list"></i></button>
-            </p>
-          </li>
+            <li class="list-group-item leccion" *ngFor="let uni of unidades |  keys">
+                <p>
+                    {{unidades[uni].nombre}}
+                    <button (click)="mostrarLecciones(unidades[uni].unidad_id)" type="button" class="btn boton" name="button"><i class="fas fa-list"></i></button>
+                </p>
+            </li>
         </ul>
     </div>
 
-    <div class="col-md-6">
-        <h5>Lecciones</h5>
+    <div class="col-md-6 animated fadeIn fast">
+        <h5>Ejercicios</h5>
         <hr>
         <h6>{{unidadNombre}}</h6>
-        <ul class="list-group">
-          <li class="list-group-item leccion" *ngFor="let lec of lecciones |  keys">
-            <p>
-              {{lecciones[lec].nombre}}
-              <button (click)="irLeccion(lecciones[lec].id)" type="button" class="btn botonL" name="button"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
-            </p>
-          </li>
-        </ul>
+
+
+        <button *ngIf="botonEjercicios" (click)="irLeccion(unidadId)" type="button" class="btn btn-block btn-success" name="button">Ejercicios</button>
     </div>
 
 

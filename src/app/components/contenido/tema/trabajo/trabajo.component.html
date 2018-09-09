@@ -1,0 +1,54 @@
+<div class="jumbotron animated fadeIn fast">
+    <div class="animated fadeIn fast" *ngIf="!terminado">
+        <h5 class="contador">Pregunta {{contador}}</h5>
+        <h5 class="preguntaActual">{{preguntaActual}}</h5>
+        <div class="row">
+            <div class="col-md-6">
+                <button *ngFor="let respuesta of respuestas" (click)="obtenerRespuesta(respuesta)" type="button" class="btn btn-block botonRespuesta" name="button"><p class="respuestaP">{{respuesta}}</p></button>
+            </div>
+        </div>
+        <hr class="my-4">
+
+
+        <div *ngIf="mostrarCorrecto" class="alert alert-success" role="alert">
+            Buen trabajo!
+        </div>
+
+
+
+        <div *ngIf="mostrarError" class="alert alert-danger" role="alert">
+            <p>Incorrecto</p> {{descripcionError}}
+            <p>Respuesta correcta: {{respuestaCorrecta}}</p>
+        </div>
+
+
+        <button *ngIf="mostrarVerificar" [disabled]="respuestaActual == ''" (click)="verificar()" class="btn botonVerificar btn-lg verificar">Verificar</button>
+        <button *ngIf="mostrarSiguiente" (click)="siguiente()" class="btn botonSiguiente btn-lg">Siguiente</button>
+    </div>
+
+    <div class="animated fadeIn fast" *ngIf="terminado">
+        <h3>Resultados</h3>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <p>Respuestas correctas:</p>
+                <h1>{{respuestasCorrectas}}/{{noPreguntas}}</h1>
+            </div>
+
+            <div class="col-md-6">
+                <div *ngIf="respuestasCorrectas == noPreguntas" class="alert alert-success" role="alert">
+                    <p>Buen trabajo <i class="fas fa-thumbs-up"></i></p>
+                </div>
+
+                <div *ngIf="respuestasCorrectas != noPreguntas" class="alert alert-danger" role="alert">
+                    <p>Vuelve a intentarlo! <i class="fas fa-thumbs-up"></i></p>
+                </div>
+
+                <button *ngIf="respuestasCorrectas == noPreguntas" (click)="completado()" class="btn botonCompletado btn-lg verificar">¡Marcar leccion completada!</button>
+                <button *ngIf="respuestasCorrectas != noPreguntas" (click)="reintentar()" class="btn botonReintento btn-lg">¡Volver a intentarlo!</button>
+            </div>
+        </div>
+    </div>
+
+</div>

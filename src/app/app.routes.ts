@@ -15,9 +15,16 @@ import {PrincipalComponent} from './components/amigos/principal/principal.compon
 import {EstadisticasComponent} from './components/amigos/estadisticas/estadisticas.component';
 import {TemaComponent} from './components/contenido/tema/tema.component';
 
+import {LecturaComponent} from './components/contenido/tema/lectura/lectura.component';
+import {TrabajoComponent} from './components/contenido/tema/trabajo/trabajo.component';
+
 //Bloqueo de rutas
 import {AuthGuardService} from "./servicios/auth-guard.service";
 import {AuthGuardServiceInicio} from "./servicios/auth-guard-inicio.service";
+import { CuestionarioComponent } from './components/contenido/tema/cuestionario/cuestionario.component';
+import { ConceptosComponent } from './components/contenido/tema/conceptos/conceptos.component';
+import { TruefalseComponent } from './components/contenido/tema/truefalse/truefalse.component';
+import { AleatorioComponent } from './components/contenido/tema/aleatorio/aleatorio.component';
 
 
 
@@ -29,12 +36,23 @@ const APP_ROUTES: Routes = [
           children:[
               { path: 'mat', component: MateriasComponent},
               { path: 'lecciones/:id', component: LeccionesComponent},
-              { path: 'tema/:id', component: TemaComponent},
+              { path: 'tema/:id', component: TemaComponent,
+                      children:[
+                         { path: 'lectura', component: LecturaComponent},
+                         { path: 'trabajo', component: TrabajoComponent},
+                         { path: 'cuestionario', component: CuestionarioComponent},
+                         { path: 'conceptos', component: ConceptosComponent},
+                         { path: 'truefalse', component: TruefalseComponent},
+                         { path: 'multiple', component: AleatorioComponent},
+                         { path: '**', pathMatch: 'full', redirectTo: 'cuestionario' }
+
+                       ]
+              },
               { path: '**', pathMatch: 'full', redirectTo: 'mat' }
           ]},
-  { path: 'ejercicios', component: EjerciciosComponent, canActivate:[AuthGuardService] },
+  { path: 'examenes', component: EjerciciosComponent, canActivate:[AuthGuardService] },
   { path: 'chat', component: ChatComponent, canActivate:[AuthGuardService] },
-  { path: 'admin', component: PerfilComponent, canActivate:[AuthGuardService] },
+  { path: 'admin', component: AdminComponent, canActivate:[AuthGuardService] },
   { path: 'amigos', component: AmigosComponent, canActivate:[AuthGuardService],
           children:[
               { path: 'principal', component: PrincipalComponent},

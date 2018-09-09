@@ -1,11 +1,12 @@
-
-<h4>Chat en vivo</h4>
+<h4>
+    Comunicate con tus compañeros!
+</h4>
 <hr>
 
 <div class="chat-window">
-  <div class="app-mensajes" id="app-mensajes">
+    <div class="app-mensajes" id="app-mensajes">
 
-    <!--<div class="text-right">
+        <!--<div class="text-right">
       <span class="badge badge-primary">Adrian</span>
       <p>
         Este es un mensaje de chat
@@ -20,21 +21,18 @@
     </div>
     -->
 
-    <div *ngFor="let chat of _cs.chats"
-          [ngClass]="{'text-right': usuario == chat.nombre}">
-      <span *ngIf="usuario == chat.nombre" class="badge badge-success">{{chat.nombre}}</span>
-      <span *ngIf="usuario != chat.nombre" class="badge badge-danger">{{chat.nombre}}</span>
+        <div *ngFor="let chat of _cs.chats" [ngClass]="{'text-right': usuario == chat.nombre}">
+            <span *ngIf="usuario == chat.nombre" class="badge badge-success">{{chat.nombre}}</span>
+            <span *ngIf="usuario != chat.nombre" class="badge badge-danger">{{chat.nombre}}</span>
 
-      <p>
-        {{chat.mensaje}}
-      </p>
+            <p>
+                {{chat.mensaje}}
+            </p>
+        </div>
+
+
     </div>
 
-
-  </div>
-
-  <input type="text" name="mensaje" class="form-control"
-         (keyup.enter)="enviar_mensaje()"
-         [(ngModel)]="mensaje" placeholder="Enviar mensaje">
+    <input type="text" name="mensaje" class="form-control" (keyup.enter)="enviar_mensaje()" [(ngModel)]="mensaje" placeholder="Enviar mensaje">
 
 </div>

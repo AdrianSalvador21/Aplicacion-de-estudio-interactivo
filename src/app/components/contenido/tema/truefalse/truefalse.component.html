@@ -1,0 +1,41 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+
+        <div class="jumbotron">
+            <p class="lead">Selecciona si las siguientes sentencias son verdaderas o falsas</p>
+            <hr>
+            <p class="lead text-center">{{preguntaActual.pregunta_nombre}}</p>
+            <hr>
+
+
+            <div class="row">
+                <div class="col-6" *ngFor="let res of respuestas">
+                    <button (click)="asignarRespuesta(res)" class="btn btn-primary btn-block mr-1 mb-2 boton" type="button">
+                            {{res}}
+                    </button>
+                </div>
+
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-4">
+                    <button *ngIf="!btnResultado" (click)="siguiente()" class="btn btn-primary btn-block mr-1" type="button">
+                            Siguiente
+                </button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-5 align-self-center">
+                    <div *ngIf="btnResultado" class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Resultado</h4>
+                        <p>{{ correctas }}/{{ longitudPreguntas }}</p>
+                        <p>Puntaje: {{ correctas }}</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

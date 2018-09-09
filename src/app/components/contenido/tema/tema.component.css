@@ -58,11 +58,32 @@
 
 .tt{
   font-family: 'Quattrocento Sans', sans-serif;
+  font-size: 22px;
+  margin-left: 10px;
 }
 .tu{
   font-family: 'Sriracha'!important;
+  font-size: 25px;
 }
 
 .linea{
   background-color: #3F66A3;
+}
+
+
+.navegacion{
+  margin-top: 10px;
+}
+
+.enlace{
+  color: black;
+}
+
+.activadooo{
+  color: white;
+  background-color: #3F66A3;
+}
+
+.liNav{
+  border-radius: 50px;
 }

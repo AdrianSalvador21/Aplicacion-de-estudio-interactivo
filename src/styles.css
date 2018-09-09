@@ -1,41 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
 
-.margenSuperior{
-  margin-top: 20px;
+.margenSuperior {
+    margin-top: 20px;
 }
 
-.margenIzq{
-  margin-left: 10px;
+.margenIzq {
+    margin-left: 10px;
 }
 
-.margenInferior{
-  margin-bottom: 20px;
+.margenInferior {
+    margin-bottom: 20px;
 }
 
 .animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
 
 .fast {
-  -webkit-animation-duration: 0.4s;
-  animation-duration: 0.4s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-duration: 0.9s;
+    animation-duration: 0.9s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .fadeIn {
-  animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.listItem {
+    list-style: none;
+}
+
+.boton {
+    background-color: #3F66A3;
+    color: #ffffff;
+}
+
+.boton:focus {
+    background-color: #4caf50;
+}
+
+.indicaciones {
+    font-size: 2em;
+    font-family: 'Open Sans', sans-serif;
 }

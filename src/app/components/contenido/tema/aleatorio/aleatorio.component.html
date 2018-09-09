@@ -1,0 +1,42 @@
+<div class="row jumbotron animated fadeIn fast">
+    <div class="col-6">
+
+        <p class="lead">Resulve la siguiente serie de preguntas</p>
+        <p class="indicaciones">{{preguntaActual.pregunta_nombre}}</p>
+        <hr>
+
+        <button (click)="asignarRespuesta(res)" class="btn boton mr-1 mt-4" *ngFor="let res of respuestas" type="button">
+                {{res}}
+            </button>
+
+
+        <div class="">
+            <button *ngIf="!btnResultado" (click)="siguiente()" class="btn btn-success mr-1 mt-1" type="button">
+                                        Siguiente
+                </button>
+        </div>
+
+
+    </div>
+
+    <div class="col-6 align-items-center">
+        <div *ngIf="btnResultado" class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Resultado</h4>
+
+            <p>
+                {{correctas}}/{{longitudPreguntas}}
+            </p>
+            <p>
+                Puntaje - {{puntaje}}
+            </p>
+            <hr>
+
+        </div>
+
+        <hr>
+
+        <div *ngIf="mostrarError" class="alert alert-danger" role="alert">
+            No puedes seleccionar todas las respuestas!!!
+        </div>
+    </div>
+</div>

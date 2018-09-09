@@ -11,6 +11,9 @@ import {SeuService} from '../../../servicios/seu.service';
 })
 export class LoginComponent implements OnInit {
 
+  //variable que ocultará el registro o lo mostrará
+  mostrarRegistro:boolean = false;
+
   //Variables que guardarán los datos del formulario inicio de sesion
   correo:string;
   contrasenia:string;
@@ -28,7 +31,9 @@ export class LoginComponent implements OnInit {
      nombre: "",
      edad: "",
      correo: "",
-     contrasenia: ""
+     contrasenia: "",
+     ap_paterno: "",
+     ap_materno: ""
   }
 
   //Formaran parte del cuerpo de la peticion a http registro
@@ -60,6 +65,7 @@ export class LoginComponent implements OnInit {
           console.log("usuario correcto");
           console.log(respuesta[0].nombre);
           localStorage.setItem("clave", respuesta[0].clave);
+          localStorage.setItem("id", respuesta[0].usuario_id);
           localStorage.setItem("alumno", respuesta[0].nombre);
           localStorage.setItem("loginExitoso", "true");
 
@@ -106,6 +112,10 @@ export class LoginComponent implements OnInit {
 
     });
 
+  }
+
+  cambiarPanel(){
+    this.mostrarRegistro = !this.mostrarRegistro;
   }
 
 }

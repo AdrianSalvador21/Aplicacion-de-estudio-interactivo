@@ -1,0 +1,68 @@
+.margenInferior{
+  margin-bottom: 10px;
+}
+
+.parrafo{
+  font-family: 'Catamaran', sans-serif;
+  font-size: 18px;
+}
+
+.titulo{
+  font-size: 50px;
+}
+
+.chat-window{
+  padding: 40px;
+  width: auto;
+  height: 500px;
+  overflow: hidden;
+  border: 1px solid #D8D8D8;
+  border-radius: 20px;
+  color: black;
+  overflow-y: scroll;
+}
+
+.imagenes{
+  height: 420px;
+  overflow-y: scroll;
+  border-radius: 20px;
+
+}
+
+
+.botonCompletar{
+  float: right;
+  margin-top: 20px;
+  height: auto;
+  background-color: #3F66A3;
+  color: white;
+}
+
+
+.imagen{
+  margin-bottom: 20px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+
+.tutuloUnidad{
+  width: 100%;
+  text-align: center;
+  justify-content:center;
+}
+
+.tituloLeccion{
+  margin-bottom: 5px;
+}
+
+.tt{
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+.tu{
+  font-family: 'Sriracha'!important;
+}
+
+.linea{
+  background-color: #3F66A3;
+}

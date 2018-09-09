@@ -1,17 +1,23 @@
-<div class="row">
-  <div class="col-md-7 tituloUnidad">
-     <h2 class="tu">{{tutuloUnidad}}</h2>
-     <hr class="linea">
-  </div>
-</div>
+<ul class="nav justify-content-center navegacion">
+    <li class="nav-item liNav">
+        <a class="nav-link enlace" routerLinkActive="activadooo" [routerLink]="['cuestionario']">Cuestionario</a>
+    </li>
+    <li class="nav-item liNav">
+        <a class="nav-link enlace" routerLinkActive="activadooo" [routerLink]="['conceptos']">Relacion de conceptos</a>
+    </li>
+    <li class="nav-item liNav">
+        <a class="nav-link enlace" routerLinkActive="activadooo" [routerLink]="['truefalse']">Verdadero o Falso</a>
+    </li>
+    <li class="nav-item liNav">
+        <a class="nav-link enlace" routerLinkActive="activadooo" [routerLink]="['multiple']">Multiple</a>
+    </li>
+</ul>
 
-<div class="row tituloLeccion">
-   <div class="col-md-6">
-      <h4 class="tt">{{titulo}}</h4>
-      <hr class="linea">
-   </div>
-</div>
+<hr>
 
+<router-outlet></router-outlet>
+
+<!--
 <div class="row">
   <div class="col-md-6 margenInferior">
       <div class="">
@@ -40,3 +46,113 @@
   </div>
 
 </div>
+-->
+
+
+<!--
+<p>Aqui se cargaran cada uno de los templates</p>
+
+
+<div class="row" *ngIf="preguntaActual.tipo_pregunta == 'C'">
+    <div class="col-12">
+
+        <div class="jumbotron">
+
+            <h3>Verdadero o falso</h3>
+            <p class="lead">{{preguntaActual.pregunta_nombre}}</p>
+            <hr>
+
+            <p class="mb-4 mt-5">Espacio asignado a pregunta v-f actual</p>
+
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-success">Verdadero</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-danger">Falso</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="row" *ngIf="preguntaActual.tipo_pregunta == 'A'">
+    <div class="col-12">
+        <p>Opcion multiple</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="row" *ngIf="preguntaActual.tipo_pregunta == 'B'">
+    <div class="col-12">
+        <div class="container">
+            <hr>
+            <h2 class="text-center">{{ titulo }}</h2>
+            <hr>
+        </div>
+
+        <div class="jumbotron">
+            <p class="text-center lead">Selecciona el concepto con la definición que le corresponda</p>
+            <div class="row">
+                <div class="col-6">
+                    <hr>
+                    <p class="text-center lead">Conceptos:</p>
+                    <hr>
+                    <ul class="text-center">
+                        <li class="listItem" #valor *ngFor="let dato of arregloConceptosOrd" (click)="respuestas(valor.textContent, 'concepto')">
+                            <button #valor type="button" class="btn btn-primary btn-block mb-2">{{ dato }}</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <hr>
+                    <p class="text-center lead">Definición:</p>
+                    <hr>
+                    <ul class="text-center">
+                        <li class="listItem" #valor *ngFor="let dato of arregloDefinicionesOrd" (click)="respuestas(valor.textContent, 'definicion')">
+                            <button #valor type="button" class="btn btn-primary btn-block mb-2">{{ dato }}</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-6">
+                    <button (click)="verCalificacion()" [disabled]="boton" class="btn btn-outline-primary btn-block" role="button">Verificar</button>
+                </div>
+                <div *ngIf="calificacion" class="col-6">
+                    <h4 class="text-center">Tu numero de aciertos son: {{ calificacion }}</h4>
+                    <button #valor type="button" class="btn btn-primary btn-block mb-2" (click)="reiniciar()">Reintentar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <button (click)="siguiente()" class="btn btn-primary">Siguiente</button>
+    </div>
+</div>
+
+-->

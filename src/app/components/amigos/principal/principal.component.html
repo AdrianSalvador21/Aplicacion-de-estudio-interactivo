@@ -1,56 +1,56 @@
 <div class="row">
-  <div class="col-md-5 margenInferior">
-          <form class="margenInferior">
+    <div class="col-md-5 margenInferior">
+        <form class="margenInferior">
             <div class="form-group">
-              <label>Agregar amigo</label>
-              <input (keyup)="buscar()" type="email" class="form-control" aria-describedby="emailHelp" name="amigo" [(ngModel)]="amigo">
-              <small id="emailHelp" class="form-text text-muted">Escribe el nombre o el correo de un amigo</small>
+                <label>Agregar amigo</label>
+                <input (keyup)="buscar()" type="email" class="form-control" aria-describedby="emailHelp" name="amigo" [(ngModel)]="amigo">
+                <small id="emailHelp" class="form-text text-muted">Escribe el nombre o el correo de un amigo</small>
             </div>
-          </form>
+        </form>
 
 
 
-      <ul class="list-group" *ngIf="mostrar">
-          <li *ngFor="let amigo of amigos | keys" class="list-group-item usuario">{{amigos[amigo].nombre}}
+        <ul class="list-group" *ngIf="mostrar">
+            <li *ngFor="let amigo of amigos | keys" class="list-group-item usuario">{{amigos[amigo].nombre}}
 
-          <button (click)="agregar(amigos[amigo].id)" class="btn boton" type="button" name="button"><i class="fa fa-user-plus" aria-hidden="true"></i></button>
-          </li>
-      </ul>
+                <button (click)="agregar(amigos[amigo].usuario_id)" class="btn boton" type="button" name="button"><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+            </li>
+        </ul>
 
-      <hr>
+        <hr>
 
-      <div class="row">
-        <div class="col-md-12">
-          <p>Solicitudes recibidas</p>
-          <ul class="list-group">
-              <li *ngFor="let solicitud of solicitudesRecibidasNombres | keys" class="list-group-item usuario">{{solicitudesRecibidasNombres[solicitud].nombre}}
+        <div class="row">
+            <div class="col-md-12">
+                <p>Solicitudes recibidas</p>
+                <ul class="list-group">
+                    <li *ngFor="let solicitud of solicitudesRecibidasNombres | keys" class="list-group-item usuario">{{solicitudesRecibidasNombres[solicitud].nombre +" "+ solicitudesRecibidasNombres[solicitud].apellido}}
 
-                <button (click)="eliminarSolicitud(solicitudesRecibidasNombres[solicitud].idSolicitud)" class="btn boton botonSize margenIzquierdoBoton" type="button" name="button"><i class="far fa-times-circle"></i></button>
+                        <button (click)="eliminarSolicitud(solicitudesRecibidasNombres[solicitud].idSolicitud)" class="btn boton botonSize margenIzquierdoBoton" type="button" name="button"><i class="far fa-times-circle"></i></button>
 
-                <button (click)="confirmarSolicitud(solicitudesRecibidasNombres[solicitud].idSolicitud)" class="btn boton botonSize margenDerecho" type="button" name="button"><i class="far fa-check-circle"></i></button>
+                        <button (click)="confirmarSolicitud(solicitudesRecibidasNombres[solicitud].idSolicitud)" class="btn boton botonSize margenDerecho" type="button" name="button"><i class="far fa-check-circle"></i></button>
 
-                <p><small>{{solicitudesRecibidasNombres[solicitud].fecha | date}}</small></p>
+                        <p><small>{{solicitudesRecibidasNombres[solicitud].fecha | date}}</small></p>
 
-              </li>
-          </ul>
+                    </li>
+                </ul>
 
+            </div>
         </div>
-      </div>
 
 
-  </div>
+    </div>
 
-  <div class="col-md-7">
-     <p>Sección amigos</p>
-     <ul class="list-group">
-         <li *ngFor="let amigo of allAmigos | keys" class="list-group-item usuario">{{allAmigos[amigo].nombreAmigo}}
-         <button class="btn boton botonSize margenIzquierdoBoton" type="button" name="button"><i class="fas fa-clipboard-list"></i></button>
-         <p><small>{{allAmigos[amigo].correoAmigo }}</small></p>
+    <div class="col-md-7">
+        <p>Sección amigos</p>
+        <ul class="list-group">
+            <li *ngFor="let amigo of allAmigos | keys" class="list-group-item usuario">{{allAmigos[amigo].nombreAmigo +" "+ allAmigos[amigo].apellidoAmigo}}
+                <button class="btn boton botonSize margenIzquierdoBoton" type="button" name="button"><i class="fas fa-clipboard-list"></i></button>
+                <p><small>{{allAmigos[amigo].correoAmigo }}</small></p>
 
 
 
-         </li>
-     </ul>
-  </div>
+            </li>
+        </ul>
+    </div>
 
 </div>

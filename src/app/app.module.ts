@@ -43,6 +43,12 @@ import { LeccionesComponent } from './components/contenido/lecciones/lecciones.c
 import { PrincipalComponent } from './components/amigos/principal/principal.component';
 import { EstadisticasComponent } from './components/amigos/estadisticas/estadisticas.component';
 import { TemaComponent } from './components/contenido/tema/tema.component';
+import { LecturaComponent } from './components/contenido/tema/lectura/lectura.component';
+import { TrabajoComponent } from './components/contenido/tema/trabajo/trabajo.component';
+import { CuestionarioComponent } from './components/contenido/tema/cuestionario/cuestionario.component';
+import { ConceptosComponent } from './components/contenido/tema/conceptos/conceptos.component';
+import { TruefalseComponent } from './components/contenido/tema/truefalse/truefalse.component';
+import { AleatorioComponent } from './components/contenido/tema/aleatorio/aleatorio.component';
 
 
 @NgModule({
@@ -63,7 +69,13 @@ import { TemaComponent } from './components/contenido/tema/tema.component';
     LeccionesComponent,
     PrincipalComponent,
     EstadisticasComponent,
-    TemaComponent
+    TemaComponent,
+    LecturaComponent,
+    TrabajoComponent,
+    CuestionarioComponent,
+    ConceptosComponent,
+    TruefalseComponent,
+    AleatorioComponent
   ],
   imports: [
     BrowserModule,

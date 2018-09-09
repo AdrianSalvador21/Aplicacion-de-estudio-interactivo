@@ -1,107 +1,125 @@
+<div class="row justify-content-center">
+    <!--INICIO DE SESION-->
+    <div class="col-md-5" *ngIf="!mostrarRegistro">
 
+        <h3>Iniciar sesion</h3>
 
-
-<div class="row">
-  <!--INICIO DE SESION-->
-  <div class="col-md-3">
-
-    <h3>Iniciar sesion</h3>
-
-    <form #formaIngreso="ngForm" (ngSubmit)="confirmarInicio(formaIngreso)">
-      <div class="form-group">
-         <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+        <form #formaIngreso="ngForm" (ngSubmit)="confirmarInicio(formaIngreso)">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="email" id="email" class="form-control form-control-sm" aria-describedby="emailHelp" placeholder="Ingresa tu correo!" name="correo" [(ngModel)]="correo" required>
+                </div>
             </div>
-            <input type="email" id="email" class="form-control form-control-sm" aria-describedby="emailHelp" placeholder="Ingresa tu correo!" name="correo" [(ngModel)]="correo" required>
+
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="password" id="contrasenia" class="form-control form-control-sm" placeholder="Contraseña" minlength="3" name="contrasenia" [(ngModel)]="contrasenia" required>
+                </div>
+            </div>
+            <button [disabled]="!formaIngreso.valid" type="submit" class="btn btn-outline-primary">Ingresar!</button>
+            <small (click)="cambiarPanel()" id="emailHelp" class="form-text text-muted cambiar">Si no tienes un usuario, crealo aqui! </small>
+        </form>
+
+        <div class="" *ngIf="inicioIncorrecto">
+            <hr>
+            <div class="alert alert-danger" role="alert">
+                Correo o contraseña incorrectos!!
+            </div>
         </div>
-      </div>
-
-
-      <div class="form-group">
-        <div class="input-group">
-           <div class="input-group-prepend">
-             <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
-           </div>
-           <input type="password" id="contrasenia" class="form-control form-control-sm" placeholder="Contraseña" minlength="3" name="contrasenia" [(ngModel)]="contrasenia" required>
-        </div>
-      </div>
-      <button [disabled]="!formaIngreso.valid" type="submit" class="btn btn-outline-primary">Ingresar!</button>
-    </form>
-
-    <div class="" *ngIf="inicioIncorrecto">
-      <hr>
-      <div class="alert alert-danger" role="alert">
-          Correo o contraseña incorrectos!!
-      </div>
-    </div>
-  </div>
-
-  <!--REGISTRO DE USUARIO-->
-  <div class="col-md-3">
-
-    <h3>Registrate</h3>
-
-    <form #formaRegistro="ngForm" (ngSubmit)="registrarUsuario(formaRegistro)">
-      <div class="form-group">
-        <div class="input-group">
-           <div class="input-group-prepend">
-             <div class="input-group-text"><i class="fas fa-user-circle"></i></div>
-           </div>
-           <input type="text" class="form-control form-control-sm" id="nombre" placeholder="Ingresa tu nombre" name="nombre" [(ngModel)]="usuarioRegistrar.nombre" required>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <div class="input-group">
-             <div class="input-group-prepend">
-               <div class="input-group-text"><i class="fa fa-gamepad" aria-hidden="true"></i></div>
-             </div>
-            <input type="number" min="6" max="80" class="form-control form-control-sm" id="edad" placeholder="Ingresa tu edad" name="edad" [(ngModel)]="usuarioRegistrar.edad" required>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <div class="input-group">
-           <div class="input-group-prepend">
-             <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-           </div>
-           <input type="email" class="form-control form-control-sm" id="correo" placeholder="Ingresa tu correo" name="correo" [(ngModel)]="usuarioRegistrar.correo" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="input-group">
-           <div class="input-group-prepend">
-             <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
-           </div>
-           <input type="password" class="form-control form-control-sm" id="contraseniaRegistro" placeholder="Contraseña" name="contrasenia" [(ngModel)]="usuarioRegistrar.contrasenia" required>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-outline-primary">Registrar</button>
-    </form>
-
-    <div class="" *ngIf="correoNoValido">
-      <hr>
-      <div class="alert alert-danger" role="alert">
-          Esto no parece ser un correo!!!
-      </div>
     </div>
 
-    <div class="" *ngIf="usuarioYaExistente">
-      <hr>
-      <div class="alert alert-danger" role="alert">
-          Correo ya registrado! Inicia sesion.
-      </div>
-    </div>
+    <!--REGISTRO DE USUARIO-->
+    <div class="col-md-5" *ngIf="mostrarRegistro">
+
+        <h3>Registrate</h3>
+
+        <form #formaRegistro="ngForm" (ngSubmit)="registrarUsuario(formaRegistro)">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input type="text" class="form-control form-control-sm" id="nombre" placeholder="Ingresa tu nombre" name="nombre" [(ngModel)]="usuarioRegistrar.nombre" required>
+                </div>
+            </div>
 
 
-    <div class="" *ngIf="usuarioRegistrado">
-      <hr>
-      <div class="alert alert-success" role="alert">
-          Usuario registrado con exito! Inicia sesion.
-      </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input type="text" class="form-control form-control-sm" id="ap_paterno" placeholder="Apellido paterno" name="ap_paterno" [(ngModel)]="usuarioRegistrar.ap_paterno" required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input type="text" class="form-control form-control-sm" id="ap_materno" placeholder="Apellido materno" name="ap_materno" [(ngModel)]="usuarioRegistrar.ap_materno" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-gamepad" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="number" min="6" max="80" class="form-control form-control-sm" id="edad" placeholder="Ingresa tu edad" name="edad" [(ngModel)]="usuarioRegistrar.edad" required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="email" class="form-control form-control-sm" id="correo" placeholder="Ingresa tu correo" name="correo" [(ngModel)]="usuarioRegistrar.correo" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="password" class="form-control form-control-sm" id="contraseniaRegistro" placeholder="Contraseña" name="contrasenia" [(ngModel)]="usuarioRegistrar.contrasenia" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Registrar</button>
+            <small (click)="cambiarPanel()" id="emailHelp" class="form-text text-muted cambiar">Si ya tienes una cuenta, inicia sesión! </small>
+        </form>
+
+        <div class="" *ngIf="correoNoValido">
+            <hr>
+            <div class="alert alert-danger" role="alert">
+                Esto no parece ser un correo!!!
+            </div>
+        </div>
+
+        <div class="" *ngIf="usuarioYaExistente">
+            <hr>
+            <div class="alert alert-danger" role="alert">
+                Correo ya registrado! Inicia sesion.
+            </div>
+        </div>
+
+
+        <div class="" *ngIf="usuarioRegistrado">
+            <hr>
+            <div class="alert alert-success" role="alert">
+                Usuario registrado con exito! Inicia sesion.
+            </div>
+        </div>
     </div>
-  </div>
 </div>

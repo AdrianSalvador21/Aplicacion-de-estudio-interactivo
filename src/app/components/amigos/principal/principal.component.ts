@@ -136,18 +136,18 @@ export class PrincipalComponent implements OnInit {
     this._seuService.solicitudesRecibidas(this.bodySolicitudes).subscribe(solicitudes => {
       console.log(solicitudes);
       for(let i = 0; i<solicitudes.length; i++){
-         console.log(solicitudes[i].id_envio);
+         console.log(solicitudes[i].usuario_id);
 
-         this.idActual = solicitudes[i].id_envio;
-         this.fecha = solicitudes[i].fecha;
-         this.id_solicitud = solicitudes[i].id;
+         this.idActual = solicitudes[i].usuario_id;
+         this.fecha = solicitudes[i].fecha_amigos;
+         this.id_solicitud = solicitudes[i].usuario_amigo_id;
 
 
-         this.objetoNombres = {id: solicitudes[i].id_envio};
+         this.objetoNombres = {id: solicitudes[i].usuario_id};
          this.bodyNombres = 'data=' + JSON.stringify(this.objetoNombres);
          this._seuService.obtenerUsuarioId(this.bodyNombres).subscribe(usuario =>{
            console.log(usuario[0].nombre);
-           let solicitudCompleta = {nombre: usuario[0].nombre, id_envio: this.idActual, fecha: this.fecha, idSolicitud: this.id_solicitud};
+           let solicitudCompleta = {nombre: usuario[0].nombre,apellido:usuario[0].ap_paterno,correo:usuario[0].correo, id_envio: this.idActual, fecha: this.fecha, idSolicitud: this.id_solicitud};
            this.solicitudesRecibidasNombres.push(solicitudCompleta);
            console.log(this.solicitudesRecibidasNombres);
          });
@@ -206,17 +206,12 @@ export class PrincipalComponent implements OnInit {
       console.log(amigos);
       for(let i=0; i<amigos.length; i++){
 
-        this.idAmigoActual = amigos[i].amigoDos_id;
-        this.fechaAmigoActual = amigos[i].fecha;
+        this.idAmigoActual = amigos[i].usuario_id;
+        this.fechaAmigoActual = amigos[i].fecha_registro;
 
-        this.objetoAmigos = {id: amigos[i].amigoDos_id};
-        this.bodyAmigos = 'data=' + JSON.stringify(this.objetoAmigos);
-        this._seuService.obtenerUsuarioId(this.bodyAmigos).subscribe(usuario =>{
-          //console.log(usuario);
-          let amigoCompleto = {nombreAmigo: usuario[0].nombre, correoAmigo: usuario[0].correo, idAmigo: usuario[0].id};
-          this.allAmigos.push(amigoCompleto);
-          console.log(this.allAmigos);
-        });
+        let amigoCompleto = {nombreAmigo: amigos[i].nombre, apellidoAmigo: amigos[i].ap_paterno, correoAmigo: amigos[i].correo, idAmigo: amigos[1].usuario_id};
+        this.allAmigos.push(amigoCompleto);
+        console.log(this.allAmigos);
       }
     });
   }

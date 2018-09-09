@@ -1,0 +1,45 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+
+        <div class="jumbotron">
+            <div class="">
+                <p class="lead">Relaciona los conceptos de ambas columnas.</p>
+                <hr>
+            </div>
+            <p class="text-center lead">{{preguntas[0].pregunta_nombre}}</p>
+            <div class="row">
+                <div class="col-6">
+                    <hr>
+                    <p class="text-center lead">Conceptos:</p>
+                    <hr>
+                    <ul class="text-center">
+                        <li class="listItem" #valor *ngFor="let dato of arregloConceptosOrd" (click)="respuestas(valor.textContent, 'concepto')">
+                            <button #valor type="button" class="btn btn-primary btn-block mb-2">{{ dato }}</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <hr>
+                    <p class="text-center lead">Definición:</p>
+                    <hr>
+                    <ul class="text-center">
+                        <li class="listItem" #valor *ngFor="let dato of arregloDefinicionesOrd" (click)="respuestas(valor.textContent, 'definicion')">
+                            <button #valor type="button" class="btn btn-primary btn-block mb-2">{{ dato }}</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-6">
+                    <button (click)="verCalificacion()" [disabled]="boton" class="btn btn-outline-primary btn-block" role="button">Verificar</button>
+                </div>
+                <div *ngIf="calificacion" class="col-6">
+                    <h4 class="text-center">Tu numero de aciertos son: {{ calificacion }}</h4>
+                    <button #valor type="button" class="btn btn-primary btn-block mb-2" (click)="reiniciar()">Reintentar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

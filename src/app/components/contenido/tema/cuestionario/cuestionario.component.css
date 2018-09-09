@@ -1,0 +1,13 @@
+.boton {
+    background-color: #3F66A3;
+    color: #ffffff;
+}
+
+.boton:focus {
+    background-color: #4caf50;
+}
+
+.indicaciones {
+    font-size: 2em;
+    font-family: 'Open Sans', sans-serif;
+}

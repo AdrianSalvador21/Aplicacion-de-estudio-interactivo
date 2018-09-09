@@ -9,6 +9,12 @@ import {SeuService} from '../../../servicios/seu.service';
 })
 export class LeccionesComponent implements OnInit {
 
+  listaEjercicios:any[] = [{'ejercicio': 'Cuestionario', 'clave': 'preguntas'},
+                            {'ejercicio': 'Relación de conceptos', 'clave': 'conceptos'},
+                            {'ejercicio': 'Verdadero o falso', 'clave': 'falsoverdadero'}];
+
+  leccionesCompletadas:any[] = []
+
   //Almacenará el id de la materia a mostrar
   idMateria:any;
   //Guargará la informacion del id en un objeto
@@ -37,10 +43,31 @@ export class LeccionesComponent implements OnInit {
 
   //Almacenará la informacion de las lecciones recuperadas
   unidadNombre:any = "";
+  unidadId:any = "";
+
+  //mostrar boton de ir a ejercicios
+  botonEjercicios:boolean = false;
+
+
+  claveUsuario:string;
+  objetoCompletadas:any;
+  bodyCompletadas:any;
 
 
   constructor(private _seuService:SeuService, private router:Router,
               private activatedRoute:ActivatedRoute) {
+
+                //obtener completadas
+                this.claveUsuario = localStorage.getItem("clave");
+                this.objetoCompletadas = {clave: this.claveUsuario};
+                this.bodyCompletadas = 'data=' + JSON.stringify(this.objetoCompletadas);
+                this._seuService.obtenerCompletadas(this.bodyCompletadas).subscribe(completadas =>{
+                  console.log(completadas);
+                  for(let i = 0; i<completadas.length; i++){
+                    this.leccionesCompletadas.push(completadas[i].leccion_id);
+                  }
+                  console.log(this.leccionesCompletadas);
+                });
 
                   //Obtenemos el parametro recibido por la url
                   this.activatedRoute.params.subscribe(parametro =>{
@@ -71,6 +98,10 @@ export class LeccionesComponent implements OnInit {
   }
 
   mostrarLecciones(idUnidad){
+
+    this.botonEjercicios = true;
+
+    this.unidadId = idUnidad;
     console.log(idUnidad);
     console.log(this.idMateria);
     //En este punto, se tiene el id de la leccion, y el id de la materia
@@ -92,6 +123,7 @@ export class LeccionesComponent implements OnInit {
     this._seuService.obtenerUnidad(this.bodyUnidad).subscribe(unidad =>{
       console.log(unidad);
       this.unidadNombre = unidad[0].nombre;
+      
     });
   }
 

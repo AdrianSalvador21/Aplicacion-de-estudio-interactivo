@@ -1,0 +1,56 @@
+<div class="row jumbotron animated fadeIn fast">
+    <div class="col-6">
+
+        <div class="">
+
+            <p class="lead">Resulve la siguiente serie de preguntas</p>
+            <p class="indicaciones">{{preguntaActual.pregunta_nombre}}</p>
+            <hr>
+
+
+
+            <div class="row">
+                <div class="col-6">
+                    <button (click)="asignarRespuesta(res)" class="btn boton mr-1 mt-4" *ngFor="let res of respuestas" type="button">
+                                    {{res}}
+                                  </button>
+                </div>
+
+                <div class="row justify-content-end">
+                    <div class="col-6 align-self-end">
+                        <button *ngIf="!btnResultado" (click)="siguiente()" class="btn btn-success mr-1" type="button">
+                                        Siguiente
+                                    </button>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+    <div class="col-6 align-items-center">
+        <div *ngIf="btnResultado" class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Resultado</h4>
+
+            <p>
+                {{correctas}}/{{longitudPreguntas}}
+            </p>
+            <p>
+                Puntaje - {{puntaje}}
+            </p>
+            <hr>
+
+        </div>
+    </div>
+</div>

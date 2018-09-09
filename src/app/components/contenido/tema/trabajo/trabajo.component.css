@@ -1,0 +1,51 @@
+.preguntaActual{
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.contador{
+  margin-bottom: 15px;
+}
+
+.verificar{
+  margin-right: 6px;
+}
+
+.botonRespuesta{
+  background-color: #3F66A3;
+  color: white;
+}
+
+.botonRespuesta:focus{
+  background-color: #0277bd;
+  color: white;
+  border: 0px solid;
+}
+
+.botonVerificar{
+  background-color: #3F66A3;
+  color: white;
+}
+
+.botonSiguiente{
+  background-color: #3F66A3;
+  color: white;
+}
+
+.respuestaP{
+  overflow: inherit;
+}
+
+.respuestaP{
+  font-size: 15px;
+}
+
+.botonCompletado{
+  background-color: #3F66A3;
+  color: white;
+}
+
+.botonReintento{
+  background-color: #3F66A3;
+  color: white;
+}

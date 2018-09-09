@@ -8,25 +8,33 @@ import 'rxjs';
 @Injectable()
 export class SeuService {
 
-  verificarUsuarioUrl:string = "http://localhost:8080/sei/db/verificarUsuario.php";
-  registrarUsuarioUrl:string = "http://localhost:8080/sei/db/registrarUsuario.php";
-  allMateriasUrl:string = "http://localhost:8080/sei/db/allMaterias.php";
-  allUnidadesUrl:string = "http://localhost:8080/sei/db/allUnidades.php";
-  allLeccionesUrl:string = "http://localhost:8080/sei/db/allLecciones.php";
-  obtenerMateriaUrl:string = "http://localhost:8080/sei/db/obtenerMateria.php";
-  obtenerUnidadUrl:string = "http://localhost:8080/sei/db/obtenerUnidad.php";
-  obtenerLeccionIdUrl:string = "http://localhost:8080/sei/db/obtenerLeccionId.php";
-  obtenerUsuarioIdUrl:string = "http://localhost:8080/sei/db/obtenerUsuarioId.php";
-  buscarAmigosUrl:string = "http://localhost:8080/sei/db/buscarAmigos.php";
-  solicitudAmigoUrl:string = "http://localhost:8080/sei/db/solicitudAmigo.php";
-  solicitudesRecibidasUrl:string = "http://localhost:8080/sei/db/solicitudesRecibidas.php";
-  aceptarSolicitudUrl:string = "http://localhost:8080/sei/db/aceptarSolicitud.php";
-  rechazarSolicitudUrl:string = "http://localhost:8080/sei/db/rechazarSolicitud.php";
-  allAmigosIdUrl:string = "http://localhost:8080/sei/db/allAmigosId.php";
-  obtenerRecursosUrl:string = "http://localhost:8080/sei/db/obtenerRecursos.php";
+  verificarUsuarioUrl:string = "http://localhost/sei/db/verificarUsuario.php";
+  registrarUsuarioUrl:string = "http://localhost/sei/db/registrarUsuario.php";
+  allMateriasUrl:string = "http://localhost/sei/db/allMaterias.php";
+  allUnidadesUrl:string = "http://localhost/sei/db/allUnidades.php";
+  allLeccionesUrl:string = "http://localhost/sei/db/allLecciones.php";
+  obtenerMateriaUrl:string = "http://localhost/sei/db/obtenerMateria.php";
+  obtenerUnidadUrl:string = "http://localhost/sei/db/obtenerUnidad.php";
+  obtenerLeccionIdUrl:string = "http://localhost/sei/db/obtenerLeccionId.php";
+  obtenerUsuarioIdUrl:string = "http://localhost/sei/db/obtenerUsuarioId.php";
+  buscarAmigosUrl:string = "http://localhost/sei/db/buscarAmigos.php";
+  solicitudAmigoUrl:string = "http://localhost/sei/db/solicitudAmigo.php";
+  solicitudesRecibidasUrl:string = "http://localhost/sei/db/solicitudesRecibidas.php";
+  aceptarSolicitudUrl:string = "http://localhost/sei/db/aceptarSolicitud.php";
+  rechazarSolicitudUrl:string = "http://localhost/sei/db/rechazarSolicitud.php";
+  allAmigosIdUrl:string = "http://localhost/sei/db/allAmigosId.php";
+  obtenerRecursosUrl:string = "http://localhost/sei/db/obtenerRecursos.php";
+  obtenerPreguntasUrl:string = "http://localhost/sei/db/obtenerPreguntas.php";
+  obtenerCompletadasUrl:string = "http://localhost/sei/db/obtenerCompletadas.php";
+  insertarCompletadaUrl:string = "http://localhost/sei/db/insertarCompletada.php";
   //pruebaTextoUrl:string = "http://localhost:8080/sei/info/prueba.php";
+  obtenerIncisoUrl:string = "http://localhost/sei/db/obtenerinciso.php";
+  guardaPuntajeUrl:string = "http://localhost/sei/db/guardaPuntaje.php";
+  buscaPuntajeUrl:string = "http://localhost/sei/db/buscaPuntaje.php";
 
   //pruebaTextoUrl:string = "assets/info/texto.txt";
+
+
 
 
 
@@ -90,6 +98,15 @@ export class SeuService {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     return this.http.post(this.allLeccionesUrl, idUnidad, {
+      headers: headers
+    }).map(res => res.json());
+  }
+
+  //funcion que obtiene todas las preguntas, mediante un id de la leccion
+  obtenerPreguntas(idLeccion){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post(this.obtenerPreguntasUrl, idLeccion, {
       headers: headers
     }).map(res => res.json());
   }
@@ -174,10 +191,45 @@ export class SeuService {
     }).map(res => res.json());
   }
 
+  obtenerCompletadas(clave){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post(this.obtenerCompletadasUrl, clave, {
+      headers: headers
+    }).map(res => res.json());
+  }
 
+  obtenerInciso(pregunta){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post(this.obtenerIncisoUrl, pregunta, {
+      headers: headers
+    }).map(res => res.json());
+  }
 
+  insertarCompletada(leccion){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post(this.insertarCompletadaUrl, leccion, {
+      headers: headers
+    });
+  }
 
+  guardaPuntaje(puntaje){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post(this.guardaPuntajeUrl, puntaje, {
+      headers: headers
+    });
+  }
 
+  buscarPuntaje(clave){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post(this.buscaPuntajeUrl, clave, {
+      headers: headers
+    }).map(res => res.json());
+  }
 
   //prueba texto
   obtenerTexto(ruta){

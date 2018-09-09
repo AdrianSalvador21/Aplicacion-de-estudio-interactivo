@@ -26,6 +26,8 @@ export class NavegacionComponent implements OnInit {
     //Asigna las variables de sesion como falsas cuando el usuario quiera cerrar sesion
     localStorage.setItem("alumno", "false");
     localStorage.setItem("loginExitoso", "false");
+    localStorage.setItem("clave", "false");
+    localStorage.setItem("id", "false");
     location.href="http://localhost:4200";
   }
 
